@@ -6,10 +6,10 @@ mongoose.connect('mongodb+srv://userone:userone@fsd.qrnq0.mongodb.net/ProjectICT
 
 const Schema = mongoose.Schema;
 
-const PartnerSchema = new Schema({
+const patronSchema = new Schema({
   image: String
 });
 
-var PartnerData = mongoose.model('partner', PartnerSchema);
+var patronData = mongoose.model('patron', patronSchema);
 
-module.exports = PartnerData;
+module.exports = patronData;

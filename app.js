@@ -18,8 +18,8 @@ app.use('/testimonials',testimonialRouter)
 // Route for testimonial ends here
 
 // Route for partner starts here
-const partnerRouter = require('./src/routes/partner');
-app.use('/partner',partnerRouter)
+const patronRouter = require('./src/routes/patron');
+app.use('/patrons',patronRouter)
 // Route for partner ends here
 
 
