@@ -1,0 +1,18 @@
+const express = require('express');
+const industrypartnerData = require('../modals/industrypartnerData');
+let industrypartnerRouter = express.Router();
+
+industrypartnerRouter.get('/', async function (req, res) {
+    
+    try { 
+        await industrypartnerData.find()
+        .then(function (industrypartner) {
+            res.send(industrypartner);
+        })
+    }
+    catch{
+console.log("error fetching industrypartners")
+    }
+});
+
+module.exports = industrypartnerRouter;

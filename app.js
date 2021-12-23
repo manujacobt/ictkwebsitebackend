@@ -11,17 +11,29 @@ app.use(express.json());
 app.use(express.static('./public'));
 app.use('/uploads', express.static('uploads'))
 
+app.set('view engine', 'ejs');
+app.set('views', 'views');
+
 
 // Route for testimonial starts here
 const testimonialRouter = require('./src/routes/testimonial');
 app.use('/testimonials',testimonialRouter)
 // Route for testimonial ends here
 
-// Route for partner starts here
+// Route for patrons starts here
 const patronRouter = require('./src/routes/patron');
 app.use('/patrons',patronRouter)
-// Route for partner ends here
+// Route for patrons ends here
 
+// Route for Industrial partners starts here
+const industrypartnerRouter = require('./src/routes/patron');
+app.use('/industry',industrypartnerRouter)
+// Route for Industrial partners ends here
+
+// Partner application form starts here
+const partnerformRouter = require('./src/routes/partnerForm');
+app.use('/PartnershipApplication', partnerformRouter);
+// Partner application form starts here
 
 
 
