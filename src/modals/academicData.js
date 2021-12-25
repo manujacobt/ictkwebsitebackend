@@ -6,10 +6,15 @@ mongoose.connect('mongodb+srv://ictakoffial2021:ictakoffial2021@ictak-official-w
 
 const Schema = mongoose.Schema;
 
-const patronSchema = new Schema({
-  image: String
+const academicSchema = new Schema({
+  
+  slno:Number,
+  membid:String,
+  name:String,
+  website:String,
+  creation_date:Date
 });
 
-var patronData = mongoose.model('patron', patronSchema);
+var academicData = mongoose.model('academic', academicSchema);
 
-module.exports = patronData;
+module.exports = academicData;
