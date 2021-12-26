@@ -24,8 +24,8 @@ app.get('/', function (req, res) {
 
 
 // Route for testimonial in home page starts here
-const testimonialRouter = require('./src/routes/testimonial');
-app.use('/testimonials',testimonialRouter)
+const hometestimonialRouter = require('./src/routes/hometestimonial');
+app.use('/hometestimonials',hometestimonialRouter)
 // Route for testimonial for home page ends here
 
 // Route for patrons starts here
