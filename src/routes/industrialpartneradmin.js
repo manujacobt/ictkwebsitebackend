@@ -44,22 +44,20 @@ catch{
 }
 });
 
-industrypartneradminRouter.delete('/remove/:id',(req,res)=>{
-   
+industrypartneradminRouter.delete('/remove/:id',async (req,res)=>{
+   try{
   id = req.params.id;
-  industrypartnerData.findById({"_id":id})
+  await industrypartnerData.findById({"_id":id})
   .then((indus)=>{
-      console.log(indus.image)
-      fs.unlinkSync(indus.image, err=>{
-        if(err){
-          console.log("file not deleted")
-        }
-        console/log("file deleted")
-      })
+      console.log(indus.image);
+      fs.unlinkSync(indus.image);     
       indus.remove()   
       res.send(true);
   })  
- 
+}
+catch{
+  res.send(false);
+} 
 })
 
 
