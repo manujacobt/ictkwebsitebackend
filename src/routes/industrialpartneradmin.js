@@ -1,7 +1,7 @@
 const express = require('express');
 const industrypartneradminRouter = express.Router();
 const industrypartnerData = require('../modals/industrypartnerData');
-
+const fs = require('fs')
 
 /* multer start */
 const multer = require('multer');
@@ -29,7 +29,7 @@ const cpUpload = upload.fields([
 
 
 /* check cpUpload */
-industrypartneradminRouter.post('/', cpUpload, async (req, res) => {
+industrypartneradminRouter.post('/add', cpUpload, async (req, res) => {
   try{
   var item = {
    
@@ -43,4 +43,24 @@ catch{
   res.send(false);
 }
 });
+
+industrypartneradminRouter.delete('/remove/:id',(req,res)=>{
+   
+  id = req.params.id;
+  industrypartnerData.findById({"_id":id})
+  .then((indus)=>{
+      console.log(indus.image)
+      fs.unlinkSync(indus.image, err=>{
+        if(err){
+          console.log("file not deleted")
+        }
+        console/log("file deleted")
+      })
+      indus.remove()   
+      res.send(true);
+  })  
+ 
+})
+
+
 module.exports = industrypartneradminRouter;

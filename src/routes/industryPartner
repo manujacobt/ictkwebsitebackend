@@ -4,15 +4,12 @@ let industrypartnerRouter = express.Router();
 
 industrypartnerRouter.get('/', async function (req, res) {
     
-    try { 
-        await industrypartnerData.find()
-        .then(function (industrypartner) {
-            res.send(industrypartner);
+   
+         industrypartnerData.find()
+        .then(function (industrypartners) {
+            res.render('index2', {industrypartners});
         })
-    }
-    catch{
-console.log("error fetching industrypartners")
-    }
+  
 });
 
 module.exports = industrypartnerRouter;

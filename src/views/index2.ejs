@@ -1,0 +1,21 @@
+<div class="row">   
+    <%for(i=0;i<industrypartners.length;i++){%>
+        <div class="row">    
+          <br>
+          <div class="col-md-2 col-sm-3 text-center">
+            <a class="story-title" href="#"><img alt="" src="<%=industrypartners[i].image%>" style="width:100px;height:100px" class="img-circle"></a>
+          </div>
+          <form method="POST" action="/industrypartneradmin/remove/<%=industrypartners[i]._id%>?_method=DELETE">
+                  
+            <br>
+            <br>
+            <button style="color: white;background-color: red;">DELETE</button>
+        </form>
+                
+                </h4></div>
+              <div class="col-xs-3"></div>
+            </div>
+            <br><br>
+          </div>
+        </div>
+        <%}%>
