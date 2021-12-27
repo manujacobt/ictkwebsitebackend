@@ -1,0 +1,28 @@
+<html>
+
+<div class="row">   
+    <%for(i=0;i<events.length;i++){%>
+        <div class="row">    
+          <br>
+          <%=events[i].coursename%>
+          <br>
+          <%= events[i].startdate%>
+          <br>
+         <%= events[i].agenda%>
+        <img src="<%= events[i].image%>" alt="" style="height: 80px;">
+                
+                </h4></div>
+              <div class="col-xs-3"></div>
+            </div>
+            <br><br>
+          </div>
+          <form method="POST" action="/eventsadmin/remove/<%=events[i]._id%>?_method=DELETE">
+                  
+            <br>
+            <br>
+            <button style="color: white;background-color: red;">DELETE</button>
+        </form>
+        </div>
+        <%}%>
+
+        </html>

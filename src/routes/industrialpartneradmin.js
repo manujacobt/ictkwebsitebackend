@@ -31,6 +31,7 @@ const cpUpload = upload.fields([
 /* check cpUpload */
 industrypartneradminRouter.post('/add', cpUpload, async (req, res) => {
   try{
+    console.log(req.body)
   var item = {
    
     image: req.files?.image[0].path,    

@@ -16,8 +16,13 @@ app.use(methodoverride('_method'));
 
 app.set('view engine', 'ejs');
 app.set('views', './src/views');
+var bodyParser = require('body-parser')
+
 app.get('/', function (req, res) {
     res.render('index' )
+})
+app.get('/formtext', function (req, res) {
+    res.render('formtext' )
 })
 
 
@@ -53,6 +58,11 @@ const academicRouter = require('./src/routes/academicMembership');
 app.use('/academic', academicRouter);
 // academic page route  ends here
 
+// Route for events starts here
+const eventsRouter = require('./src/routes/events');
+app.use('/events',eventsRouter)
+// Route for events ends here
+
 
 
 
@@ -75,6 +85,12 @@ app.use('/industrypartneradmin', industrypartneradminRouter);
 const academicadminRouter = require('./src/routes/academicadmin');
 app.use('/academicadmin', academicadminRouter);
 // academic admin adding colleges ends here
+
+
+// events admin adding events starts here
+const eventsadminRouter = require('./src/routes/eventsadmin');
+app.use('/eventsadmin', eventsadminRouter);
+// events admin adding events ends here
 
 
 
