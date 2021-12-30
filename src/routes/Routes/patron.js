@@ -1,5 +1,5 @@
 const express = require('express');
-const patronData = require('../modals/patronData');
+const patronData = require('../../modals/patronData');
 let patronRouter = express.Router();
 
 patronRouter.get('/', async function (req, res) {

@@ -1,5 +1,5 @@
 const express = require('express');
-const eventsData = require('../modals/eventsData');
+const eventsData = require('../../modals/eventsData');
 const fs = require('fs')
 
 let eventsadminRouter = express.Router();

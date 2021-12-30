@@ -1,5 +1,5 @@
 const express = require('express');
-const TestimonialData = require('../modals/TestimonialData');
+const TestimonialData = require('../../modals/TestimonialData');
 let testimonialRouter = express.Router();
 
 testimonialRouter.get('/', function (req, res) {

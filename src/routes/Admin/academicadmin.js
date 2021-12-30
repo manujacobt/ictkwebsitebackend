@@ -1,5 +1,5 @@
 const express = require('express');
-const academicData = require('../modals/academicData');
+const academicData = require('../../modals/academicData');
 
 let academicadminRouter = express.Router();
 
@@ -24,5 +24,20 @@ try{
     }
 
 });
+
+academicadminRouter.delete('/remove/:id',async (req,res)=>{
+    try{
+   id = req.params.id;
+   await academicData.findById({"_id":id})
+   .then((indus)=>{
+        indus.remove()   
+       res.send(true);
+   })  
+  }
+  catch{
+   res.send(false);
+  } 
+  })
+
 
 module.exports = academicadminRouter;

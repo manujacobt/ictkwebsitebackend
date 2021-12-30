@@ -1,11 +1,10 @@
 const express = require('express');
-const academicadminRouter = express.Router();
-const patronData = require('../modals/patronData');
-
+const knowledgepartneradminRouter = express.Router();
+const knowledgepartnerData = require('../../modals/knowledgepartnerData');
+const fs = require('fs');
 
 /* multer start */
 const multer = require('multer');
-const res = require('express/lib/response');
 
 
 const storage = multer.diskStorage({
@@ -30,18 +29,35 @@ const cpUpload = upload.fields([
 
 
 /* check cpUpload */
-academicadminRouter.post('/', cpUpload, async (req, res) => {
+knowledgepartneradminRouter.post('/', cpUpload, async (req, res) => {
   try{
   var item = {
    
     image: req.files?.image[0].path,    
     
   };
-  await patronData.create(item);
+  await knowledgepartnerData.create(item);
   res.send(true);  
 }
 catch{
   res.send(false);
 }
 });
-module.exports = academicadminRouter;
+
+knowledgeadminRouter.delete('/remove/:id',async (req,res)=>{
+  try{
+ id = req.params.id;
+ await knowledgeData.findById({"_id":id})
+ .then((indus)=>{
+     console.log(indus.image);
+     fs.unlinkSync(indus.image);     
+     indus.remove()   
+     res.send(true);
+ })  
+}
+catch{
+ res.send(false);
+} 
+})
+
+module.exports = knowledgepartneradminRouter;

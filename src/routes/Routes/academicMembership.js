@@ -1,5 +1,5 @@
 const express = require('express');
-const academicData = require('../modals/academicData');
+const academicData = require('../../modals/academicData');
 let academicRouter = express.Router();
 
 academicRouter.get('/', async function (req, res) {

@@ -1,0 +1,21 @@
+<div class="row">   
+    <%for(i=0;i<staff.length;i++){%>
+        <div class="row">    
+          
+         
+        <img src="<%= staff[i].image%>" alt="" style="height: 80px;">
+                
+                </h4></div>
+              <div class="col-xs-3"></div>
+            </div>
+            <br><br>
+          </div>
+          <form method="POST" action="/staffadmin/update/<%=staff[i]._id%>?_method=PUT">
+                  
+            <br>
+            <br>
+            <button style="color: white;background-color: red;"update</button>
+        </form>
+        </div>
+        <%}%>
+ 

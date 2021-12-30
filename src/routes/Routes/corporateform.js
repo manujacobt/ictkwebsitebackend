@@ -1,5 +1,5 @@
 const express = require('express');
-const corporateApplicationData = require('../modals/corporateformData');
+const corporateApplicationData = require('../../modals/corporateformData');
 let corporateformRouter = express.Router();
 
 corporateformRouter.post('/', async function (req, res) {

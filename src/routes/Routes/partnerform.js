@@ -1,5 +1,5 @@
 const express = require('express');
-const partnerApplicationData = require('../modals/partnerformData');
+const partnerApplicationData = require('../../modals/partnerformData');
 let partnerformRouter = express.Router();
 
 partnerformRouter.post('/', async function (req, res) { 

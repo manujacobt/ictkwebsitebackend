@@ -1,5 +1,5 @@
 const express = require('express');
-const eventsData = require('../modals/eventsData');
+const eventsData = require('../../modals/eventsData');
 let eventsRouter = express.Router();
 
 eventsRouter.get('/', async function (req, res) {

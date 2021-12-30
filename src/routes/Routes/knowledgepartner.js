@@ -1,5 +1,5 @@
 const express = require('express');
-const knowledgepartnerData = require('../modals/knowledgepartnerData');
+const knowledgepartnerData = require('../../modals/knowledgepartnerData');
 let knowledgepartnerRouter = express.Router();
 
 knowledgepartnerRouter.get('/', async function (req, res) {

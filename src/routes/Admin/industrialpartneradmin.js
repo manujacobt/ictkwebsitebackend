@@ -1,6 +1,6 @@
 const express = require('express');
 const industrypartneradminRouter = express.Router();
-const industrypartnerData = require('../modals/industrypartnerData');
+const industrypartnerData = require('../../modals/industrypartnerData');
 const fs = require('fs')
 
 /* multer start */
