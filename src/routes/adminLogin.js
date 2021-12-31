@@ -2,8 +2,7 @@ const express = require('express');
 let app = express.Router();
 const jwt = require('jsonwebtoken');
 const adminData = require('../modals/adminSignup');
-
-
+const bcrypt = require('bcrypt');
 
 
 app.post('/', async function (req, res) {
@@ -13,30 +12,18 @@ app.post('/', async function (req, res) {
     console.log(req.body)
 
     // mongo check for user
-  await adminData.findOne({ email: email, password: password }, function (err, user) {
-        if (err) {
-            console.log("admin login failed")
+ let user= await adminData.findOne({'email': email})
+ console.log(user);
 
-            res.send({ status: false, data: 'Response error.' });
-        }
-        else if (user) {
-
-            adminData.findOne({ email: req.body.email })
-                .then(function (userdata) {
-                    var user = userdata;
-                });
-
-
-            console.log("local user login success")
-            let payload = { subject: email + password }
-            let token = jwt.sign(payload, 'secretKey')
-            res.send({ status: true, token, user })
-
-            console.log({ status: true, token, user })
-        } else {
-            res.send({ status: false, data: 'NOT FOUND' });
-        }
-    });
+ bcrypt.compare(password,user.password)
+ .then((status)=>{
+     if(status){
+        res.send(true);
+     }
+     else{
+         res.send(false);
+     }  
+    }) 
 });
 
 
