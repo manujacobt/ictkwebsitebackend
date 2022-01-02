@@ -69,6 +69,12 @@ const eventsRouter = require('./src/routes/Routes/events');
 app.use('/events',eventsRouter)
 // Route for events ends here
 
+// Route for knowledge partner starts here
+const knowledgepartnerRouter = require('./src/routes/Routes/knowledgepartner');
+app.use('/events',knowledgepartnerRouter)
+// Route for knowledge partner starts here
+
+
 
 
 

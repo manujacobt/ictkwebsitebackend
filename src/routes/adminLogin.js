@@ -18,7 +18,11 @@ app.post('/', async function (req, res) {
  bcrypt.compare(password,user.password)
  .then((status)=>{
      if(status){
-        res.send(true);
+        let payload = {subject: user.email}
+        console.log("payload="+payload.subject)
+        let token = jwt.sign(payload, 'secretKey')
+        console.log("token="+token)
+        res.status(200).send({token})       
      }
      else{
          res.send(false);
